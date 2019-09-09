@@ -15,6 +15,11 @@ export default function Chat() {
         socket.on("update", message => setMessages(draft => {
             draft.push(["", message]);
         }));
+        socket.on("message que",(fakeName, message) => {
+            setMessages(draft => {
+                draft.push([fakeName, message])
+            })
+        });
     }, 0);
 
     const handleSubmit = e => {
