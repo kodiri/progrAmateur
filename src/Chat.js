@@ -12,7 +12,8 @@ export default function Chat() {
     socket.connect();
     console.table(socket);
 
-    const [messages, setMessages] = useImmer([])
+    const [messages, setMessages] = useImmer([]);
+    const [online, setOnline] = useImmer([]);
     useEffect(() => { 
         socket.on("update", message => setMessages(draft => {
             draft.push(["", message]);
@@ -39,6 +40,10 @@ export default function Chat() {
             <ul id="messages">
                 <Messages data ={messages} />
             </ul> 
+            <ul id="online">
+                {""} : <Online data={online} />{" "}
+            </ul>
+
             </section>
             ) : (
         <div>
