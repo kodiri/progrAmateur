@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 
 export default function Chat() {
     const [nameInput, setNameInput] = useState ("");
+    const [room, setRoom] = useState ("");
 
     const handleSubmit = e => {
         e.preventDefault();
@@ -21,7 +22,7 @@ export default function Chat() {
             <br />
             <input 
                 id = "chatRoom"
-                onChange = {''}
+                onChange = {e => setRoom(e.target.value.trim())}
                 placeholder = "Please enter your chat room"
             />
             <br />
