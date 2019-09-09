@@ -4,12 +4,13 @@ import useSocket from "use-socket.io-client";
 import { useImmer } from 'use-immer';
 
 export default function Chat() {
+    const [id, setId] = useState ("");
     const [nameInput, setNameInput] = useState ("");
     const [room, setRoom] = useState ("");
     const [socket] = useSocket("");
 
     socket.connect();
-    console.log(socket);
+    console.table(socket);
 
     const [messages, setMessages] = useImmer([])
     useEffect(() => { 
@@ -28,9 +29,19 @@ export default function Chat() {
         if (!nameInput) {
             return alert("username cannot be empty");
         } 
+        setId(nameInput);
+        socket.emit('join', nameInput, room);
     }
 
-    return (
+
+    return id ? (
+        <section>
+            <ul id="messages">
+                <Messages data ={messages} />
+            </ul> 
+            </section>
+            ) : (
+        <div>
         <form onSubmit={event => handleSubmit(event)}>
             <input
                 id = "userName"
@@ -47,5 +58,6 @@ export default function Chat() {
             <br />
             <button type="submit">Join Chat!</button>
         </form>
+        </div>
     );
 }
