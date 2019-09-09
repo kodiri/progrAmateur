@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
+import useSocket from "use-socket.io-client";
 
 export default function Chat() {
     const [nameInput, setNameInput] = useState ("");
     const [room, setRoom] = useState ("");
+    const [socket] = useSocket("");
 
     const handleSubmit = e => {
         e.preventDefault();
@@ -10,6 +12,8 @@ export default function Chat() {
             return alert("username cannot be empty");
         } 
     }
+    socket.connect();
+    console.log(socket);
 
     return (
         <form onSubmit={event => handleSubmit(event)}>
