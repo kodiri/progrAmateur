@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 
 export default function Chat() {
+    const [name, setNameInput] = useState ('');
     return (
         <form>
             <input
                 id = "userName"
-                onChange = {''}
+                onChange = {e => setNameInput(e.target.value.trim())}
                 required
                 placeholder = "Please enter your username"
             />
