@@ -1,14 +1,22 @@
 import React, { useState } from 'react';
 
 export default function Chat() {
-    const [name, setNameInput] = useState ('');
+    const [nameInput, setNameInput] = useState ("");
+
+    const handleSubmit = e => {
+        e.preventDefault();
+        if (!nameInput) {
+            return alert("username cannot be empty");
+        } 
+    }
+
     return (
-        <form>
+        <form onSubmit={event => handleSubmit(event)}>
             <input
                 id = "userName"
                 onChange = {e => setNameInput(e.target.value.trim())}
                 required
-                placeholder = "Please enter your username"
+                placeholder = "Please enter your username" 
             />
             <br />
             <input 
