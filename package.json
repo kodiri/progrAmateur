@@ -6,6 +6,7 @@
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "react-scripts": "3.1.1",
+    "use-immer": "^0.3.3",
     "use-socket.io-client": "^1.0.4"
   },
   "scripts": {

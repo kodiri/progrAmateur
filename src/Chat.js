@@ -1,10 +1,21 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from "react";
 import useSocket from "use-socket.io-client";
+import { useImmer } from 'use-immer';
 
 export default function Chat() {
     const [nameInput, setNameInput] = useState ("");
     const [room, setRoom] = useState ("");
     const [socket] = useSocket("");
+
+    socket.connect();
+    console.log(socket);
+
+    const [messages, setMessages] = useImmer([])
+    useEffect(() => { 
+        socket.on("update", message => setMessages(draft => {
+            draft.push(["", message]);
+        }));
+    }, 0);
 
     const handleSubmit = e => {
         e.preventDefault();
@@ -12,8 +23,6 @@ export default function Chat() {
             return alert("username cannot be empty");
         } 
     }
-    socket.connect();
-    console.log(socket);
 
     return (
         <form onSubmit={event => handleSubmit(event)}>
