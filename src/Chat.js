@@ -15,6 +15,8 @@ export default function Chat() {
 
   const [messages, setMessages] = useImmer([]);
   const [online, setOnline] = useImmer([]);
+  const [input, setInput] = useState("");
+
   useEffect(() => {
     socket.on("update", message =>
       setMessages(draft => {
@@ -37,6 +39,14 @@ export default function Chat() {
     socket.emit("join", nameInput, room);
   };
 
+  const handleSend = e => {
+      e.preventDefault();
+      if(input !== ""){
+          socket.emit("chat message", input, room);
+          setInput("");
+      }
+  };
+
   return id ? (
     <section>
       <ul id="messages">
@@ -46,8 +56,8 @@ export default function Chat() {
         {""} : <Online data={online} />{" "}
       </ul>
       <div id="sendform">
-        <form>
-          <input id="m"/>
+        <form onSubmit={e => handleSend(e)}>
+          <input id="m" onChange={e => setInput(e.target.value.trim())} />
           <button type="submit">send</button>
         </form>
       </div>
