@@ -23,6 +23,22 @@ export default function Chat() {
         draft.push(["", message]);
       })
     );
+
+    socket.on('people-list', people => {
+      let newState = [];
+      for (let person in people) {
+        newState.push([people[person].id, people[person].fakeName]);
+      }
+      setOnline(draft => { draft.push(...newState) });
+      console.log(online)
+    });
+
+    socket.on('add-person',(fakeName,id)=>{
+      setOnline(draft => {
+        draft.push([id,fakeName])
+      })
+    });
+
     socket.on("message que", (fakeName, message) => {
       setMessages(draft => {
         draft.push([fakeName, message]);
@@ -40,11 +56,11 @@ export default function Chat() {
   };
 
   const handleSend = e => {
-      e.preventDefault();
-      if(input !== ""){
-          socket.emit("chat message", input, room);
-          setInput("");
-      }
+    e.preventDefault();
+    if (input !== "") {
+      socket.emit("chat message", input, room);
+      setInput("");
+    }
   };
 
   return id ? (
@@ -63,23 +79,23 @@ export default function Chat() {
       </div>
     </section>
   ) : (
-    <div>
-      <form onSubmit={event => handleSubmit(event)}>
-        <input
-          id="userName"
-          onChange={e => setNameInput(e.target.value.trim())}
-          required
-          placeholder="Please enter your username"
-        />
-        <br />
-        <input
-          id="chatRoom"
-          onChange={e => setRoom(e.target.value.trim())}
-          placeholder="Please enter your chat room"
-        />
-        <br />
-        <button type="submit">Join Chat!</button>
-      </form>
-    </div>
-  );
+      <div>
+        <form onSubmit={event => handleSubmit(event)}>
+          <input
+            id="userName"
+            onChange={e => setNameInput(e.target.value.trim())}
+            required
+            placeholder="Please enter your username"
+          />
+          <br />
+          <input
+            id="chatRoom"
+            onChange={e => setRoom(e.target.value.trim())}
+            placeholder="Please enter your chat room"
+          />
+          <br />
+          <button type="submit">Join Chat!</button>
+        </form>
+      </div>
+    );
 }
