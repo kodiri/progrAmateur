@@ -8,7 +8,7 @@ export default function Chat() {
   const [id, setId] = useState("");
   const [nameInput, setNameInput] = useState("");
   const [room, setRoom] = useState("");
-  const [socket] = useSocket("");
+  const [socket] = useSocket("https://open-chat-naostsaecf.now.sh");
 
   socket.connect();
   console.table(socket);
@@ -47,6 +47,9 @@ export default function Chat() {
       setMessages(draft => {
         draft.push([fakeName, message]);
       });
+    });
+    socket.on('chat message',(nick,message)=>{
+      setMessages(draft => {draft.push([nick,message])})
     });
   }, 0);
 
