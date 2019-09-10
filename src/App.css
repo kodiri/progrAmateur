@@ -1,3 +1,16 @@
 .App {
   text-align: center;
 }
+
+.chatSection{
+  display: flex;
+  flex-direction: row;
+}
+
+.form{
+  display: flex;
+}
+
+.chat{
+  background-color: rgb(92, 118, 141);
+}

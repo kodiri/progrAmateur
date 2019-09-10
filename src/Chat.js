@@ -71,7 +71,7 @@ export default function Chat() {
   };
 
   return id ? (
-    <section>
+    <section className="chatSection">
       <ul id="messages">
         <Messages data={messages} />
       </ul>
@@ -79,14 +79,14 @@ export default function Chat() {
         {""} : <Online data={online} />{" "}
       </ul>
       <div id="sendform">
-        <form onSubmit={e => handleSend(e)}>
+        <form className="form" onSubmit={e => handleSend(e)}>
           <input id="m" onChange={e => setInput(e.target.value.trim())} />
           <button type="submit">send</button>
         </form>
       </div>
     </section>
   ) : (
-      <div>
+      <div className="chat">
         <form onSubmit={event => handleSubmit(event)}>
           <input
             id="userName"
