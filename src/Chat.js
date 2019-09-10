@@ -39,6 +39,10 @@ export default function Chat() {
       })
     });
 
+    socket.on('remove-person',id=>{
+      setOnline(draft => draft.filter(m => m[0] !== id))
+    });
+
     socket.on("message que", (fakeName, message) => {
       setMessages(draft => {
         draft.push([fakeName, message]);
