@@ -1,16 +1,43 @@
 .App {
   text-align: center;
+  align-items: center;
 }
 
-.chatSection{
+.chatSection {
   display: flex;
   flex-direction: row;
 }
 
-.form{
+.form {
   display: flex;
 }
 
-.chat{
-  background-color: rgb(92, 118, 141);
+.landing-Page {
+  min-height: 100vh;
+  min-width: 100vw;
+}
+
+.background {
+  background-image: url("./Images/progrAmateur.png");
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  width: 100vw;
+}
+
+.main-Strip {
+  min-height: 100vh;
+  width: 40vw;
+  opacity: 0.8;
+  background: white;
+}
+
+.header {
+  color: #0086C3;
+  text-shadow: 1px 1px 1px black;
+}
+
+.log-In-Keys {
+  margin: 0;
+  border: 0;
 }
