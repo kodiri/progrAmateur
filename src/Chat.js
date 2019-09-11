@@ -8,7 +8,7 @@ export default function Chat() {
   const [id, setId] = useState("");
   const [nameInput, setNameInput] = useState("");
   const [room, setRoom] = useState("");
-  const [socket] = useSocket("");
+  const [socket] = useSocket("localhost:3000");
 
   socket.connect();
   console.table(socket);
