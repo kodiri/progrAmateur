@@ -8,7 +8,7 @@ export default function Chat() {
   const [id, setId] = useState("");
   const [nameInput, setNameInput] = useState("");
   const [room, setRoom] = useState("");
-  const [socket] = useSocket("localhost:3000");
+  const [socket] = useSocket("https://open-chat-naostsaecf.now.sh");
 
   socket.connect();
   console.table(socket);
@@ -23,10 +23,33 @@ export default function Chat() {
         draft.push(["", message]);
       })
     );
+
+    socket.on('people-list', people => {
+      let newState = [];
+      for (let person in people) {
+        newState.push([people[person].id, people[person].fakeName]);
+      }
+      setOnline(draft => { draft.push(...newState) });
+      console.log(online)
+    });
+
+    socket.on('add-person',(fakeName,id)=>{
+      setOnline(draft => {
+        draft.push([id,fakeName])
+      })
+    });
+
+    socket.on('remove-person',id=>{
+      setOnline(draft => draft.filter(m => m[0] !== id))
+    });
+
     socket.on("message que", (fakeName, message) => {
       setMessages(draft => {
         draft.push([fakeName, message]);
       });
+    });
+    socket.on('chat message',(nick,message)=>{
+      setMessages(draft => {draft.push([nick,message])})
     });
   }, 0);
 
@@ -40,15 +63,15 @@ export default function Chat() {
   };
 
   const handleSend = e => {
-      e.preventDefault();
-      if(input !== ""){
-          socket.emit("chat message", input, room);
-          setInput("");
-      }
+    e.preventDefault();
+    if (input !== "") {
+      socket.emit("chat message", input, room);
+      setInput("");
+    }
   };
 
   return id ? (
-    <section>
+    <section className="chatSection">
       <ul id="messages">
         <Messages data={messages} />
       </ul>
@@ -56,30 +79,30 @@ export default function Chat() {
         {""} : <Online data={online} />{" "}
       </ul>
       <div id="sendform">
-        <form onSubmit={e => handleSend(e)}>
+        <form className="form" onSubmit={e => handleSend(e)}>
           <input id="m" onChange={e => setInput(e.target.value.trim())} />
           <button type="submit">send</button>
         </form>
       </div>
     </section>
   ) : (
-    <div>
-      <form onSubmit={event => handleSubmit(event)}>
-        <input
-          id="userName"
-          onChange={e => setNameInput(e.target.value.trim())}
-          required
-          placeholder="Please enter your username"
-        />
-        <br />
-        <input
-          id="chatRoom"
-          onChange={e => setRoom(e.target.value.trim())}
-          placeholder="Please enter your chat room"
-        />
-        <br />
-        <button type="submit">Join Chat!</button>
-      </form>
-    </div>
-  );
+      <div className="chat">
+        <form onSubmit={event => handleSubmit(event)}>
+          <input
+            id="userName"
+            onChange={e => setNameInput(e.target.value.trim())}
+            required
+            placeholder="Please enter your username"
+          />
+          <br />
+          <input
+            id="chatRoom"
+            onChange={e => setRoom(e.target.value.trim())}
+            placeholder="Please enter your chat room"
+          />
+          <br />
+          <button type="submit">Join Chat!</button>
+        </form>
+      </div>
+    );
 }
