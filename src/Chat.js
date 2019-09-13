@@ -91,33 +91,40 @@ export default function Chat() {
     </section>
   ) : (
     <body className="landing-Page">
-      <div className="background">
-        <div className="main-Strip">
-          <h1 className="header">progrAmateur</h1>
-          <h3>Meet new people who share the passion to join the development world!</h3>
+      <div className="landing-Background">
+        <div className="landing-Main-Strip">
+          <h1 className="landing-Header">{'{ progrAmateur }'} </h1>
+          <div className="landing-Intro-Container">
+          <h3 className="landing-Intro">Meet new people who share the passion to join the development world!</h3>
+          <br />
           <form className="log-In" onSubmit={event => handleSubmit(event)}>
-            <p className="log-In-Keys">Log-In</p>
+            <p className="log-In-Key">Log In</p>
             <input
+              className="landing-Inputs"
               id="userName"
               onChange={e => setNameInput(e.target.value.trim())}
               required
-              placeholder="Please enter your username"
+              placeholder="Please enter username"
             />
             <br />
             <input
+              className="landing-Inputs"
               id="chatRoom"
               onChange={e => setRoom(e.target.value.trim())}
-              placeholder="Please enter your chat room"
+              placeholder="Please enter chat room"
             />
             <br />
-            <button type="submit">Join Chat!</button>
+            <br />
+            <button type="submit">Join</button>
           </form>
-          <p>
+          <br />
+          <p className="landing-Details">
             Make your own chat room with full control over it.
             <br />
             <br />
             Access to useful links such as StackOverflow etc.
-            </p>
+          </p>
+        </div>
         </div>
       </div>
     </body>
