@@ -24,23 +24,25 @@ export default function Chat() {
       })
     );
 
-    socket.on('people-list', people => {
+    socket.on("people-list", people => {
       let newState = [];
       for (let person in people) {
         newState.push([people[person].id, people[person].fakeName]);
       }
-      setOnline(draft => { draft.push(...newState) });
-      console.log(online)
-    });
-
-    socket.on('add-person',(fakeName,id)=>{
       setOnline(draft => {
-        draft.push([id,fakeName])
-      })
+        draft.push(...newState);
+      });
+      console.log(online);
     });
 
-    socket.on('remove-person',id=>{
-      setOnline(draft => draft.filter(m => m[0] !== id))
+    socket.on("add-person", (fakeName, id) => {
+      setOnline(draft => {
+        draft.push([id, fakeName]);
+      });
+    });
+
+    socket.on("remove-person", id => {
+      setOnline(draft => draft.filter(m => m[0] !== id));
     });
 
     socket.on("message que", (fakeName, message) => {
@@ -48,8 +50,10 @@ export default function Chat() {
         draft.push([fakeName, message]);
       });
     });
-    socket.on('chat message',(nick,message)=>{
-      setMessages(draft => {draft.push([nick,message])})
+    socket.on("chat message", (nick, message) => {
+      setMessages(draft => {
+        draft.push([nick, message]);
+      });
     });
   }, 0);
 
@@ -72,37 +76,39 @@ export default function Chat() {
 
   return id ? (
     <section className="chatSection">
-      <ul id="messages">
-        <Messages data={messages} />
-      </ul>
-      <ul id="online">
-        {""} : <Online data={online} />{" "}
-      </ul>
-      <div id="sendform">
-        <form className="form" onSubmit={e => handleSend(e)}>
-          <input id="m" onChange={e => setInput(e.target.value.trim())} />
-          <button type="submit">send</button>
-        </form>
+      <div className="chatBackground">
+        <ul id="messages">
+          <Messages data={messages} />
+        </ul>
+        <ul id="online">
+          {""} : <Online data={online} />{" "}
+        </ul>
+        <div id="sendform">
+          <form className="form" onSubmit={e => handleSend(e)}>
+            <input id="m" onChange={e => setInput(e.target.value.trim())} />
+            <button type="submit">send</button>
+          </form>
+        </div>
       </div>
     </section>
   ) : (
-      <div className="chat">
-        <form onSubmit={event => handleSubmit(event)}>
-          <input
-            id="userName"
-            onChange={e => setNameInput(e.target.value.trim())}
-            required
-            placeholder="Please enter your username"
-          />
-          <br />
-          <input
-            id="chatRoom"
-            onChange={e => setRoom(e.target.value.trim())}
-            placeholder="Please enter your chat room"
-          />
-          <br />
-          <button type="submit">Join Chat!</button>
-        </form>
-      </div>
-    );
+    <div className="chat">
+      <form onSubmit={event => handleSubmit(event)}>
+        <input
+          id="userName"
+          onChange={e => setNameInput(e.target.value.trim())}
+          required
+          placeholder="Please enter your username"
+        />
+        <br />
+        <input
+          id="chatRoom"
+          onChange={e => setRoom(e.target.value.trim())}
+          placeholder="Please enter your chat room"
+        />
+        <br />
+        <button type="submit">Join Chat!</button>
+      </form>
+    </div>
+  );
 }
