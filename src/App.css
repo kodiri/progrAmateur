@@ -3,7 +3,7 @@
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
-.chatSection{
+.chatSection {
   display: flex;
   flex-direction: row;
   width: 100vw;
