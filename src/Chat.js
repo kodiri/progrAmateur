@@ -76,50 +76,39 @@ export default function Chat() {
 
   return id ? (
     <section className="chatSection">
-      <ul id="messages">
-        <Messages data={messages} />
-      </ul>
-      <ul id="online">
-        {""} : <Online data={online} />{" "}
-      </ul>
-      <div id="sendform">
-        <form className="form" onSubmit={e => handleSend(e)}>
-          <input id="m" onChange={e => setInput(e.target.value.trim())} />
-          <button type="submit">send</button>
-        </form>
+      <div className="chatBackground">
+        <ul id="messages">
+          <Messages data={messages} />
+        </ul>
+        <ul id="online">
+          {""} : <Online data={online} />{" "}
+        </ul>
+        <div id="sendform">
+          <form className="form" onSubmit={e => handleSend(e)}>
+            <input id="m" onChange={e => setInput(e.target.value.trim())} />
+            <button type="submit">send</button>
+          </form>
+        </div>
       </div>
     </section>
   ) : (
-    <body className="landing-Page">
-      <div className="background">
-        <div className="main-Strip">
-          <h1 className="header">progrAmateur</h1>
-          <h3>Meet new people who share the passion to join the development world!</h3>
-          <form className="log-In" onSubmit={event => handleSubmit(event)}>
-            <p className="log-In-Keys">Log-In</p>
-            <input
-              id="userName"
-              onChange={e => setNameInput(e.target.value.trim())}
-              required
-              placeholder="Please enter your username"
-            />
-            <br />
-            <input
-              id="chatRoom"
-              onChange={e => setRoom(e.target.value.trim())}
-              placeholder="Please enter your chat room"
-            />
-            <br />
-            <button type="submit">Join Chat!</button>
-          </form>
-          <p>
-            Make your own chat room with full control over it.
-            <br />
-            <br />
-            Access to useful links such as StackOverflow etc.
-            </p>
-        </div>
-      </div>
-    </body>
+    <div className="chat">
+      <form onSubmit={event => handleSubmit(event)}>
+        <input
+          id="userName"
+          onChange={e => setNameInput(e.target.value.trim())}
+          required
+          placeholder="Please enter your username"
+        />
+        <br />
+        <input
+          id="chatRoom"
+          onChange={e => setRoom(e.target.value.trim())}
+          placeholder="Please enter your chat room"
+        />
+        <br />
+        <button type="submit">Join Chat!</button>
+      </form>
+    </div>
   );
 }
