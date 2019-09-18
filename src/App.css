@@ -1,15 +1,22 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
 .App {
   text-align: center;
-  align-items: center;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 .chatSection {
   display: flex;
   flex-direction: row;
-}
-
-.form {
-  display: flex;
+  width: 100vw;
+  height: 100vh;
+  background-image: url('./progrAmateur.png');
+  background-size: cover;
+  background-position: center;
+  justify-content: center;
 }
 
 .landing-Page {
@@ -17,27 +24,102 @@
   min-width: 100vw;
 }
 
-.background {
+.landing-Background {
+  display: flex;
+  justify-content: center;
   background-image: url("./Images/progrAmateur.png");
   background-size: cover;
   background-position: center;
-  height: 100vh;
-  width: 100vw;
+}
+.chatBackground {
+  background-color: rgb(255, 255, 255, 0.8);
+  display: flex;
+  justify-content: center;
+}
+.form{
+  display: flex;
 }
 
-.main-Strip {
+.chat{
+  background-color: rgb(92, 118, 141);
+}
+
+#messages {
+  background-color:  rgb(255, 255, 255, 0.8);
+  list-style-type: none;
+}
+#online {
+  background-color:  rgb(255, 255, 255, 0.8);
+  
+}
+#sendform {
+  background-color: rgb(255, 255, 255, 0);
+  position: absolute;
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.landing-Main-Strip {
   min-height: 100vh;
   width: 40vw;
-  opacity: 0.8;
-  background: white;
+  background: rgba(255,255,255, 0.9);
 }
 
-.header {
+.landing-Header {
+  flex: 1;
   color: #0086C3;
-  text-shadow: 1px 1px 1px black;
+  text-shadow: 0 1px 0 #CCCCCC, 0 2px 0 #c9c9c9, 
+  0 3px 0 #bbb, 0 4px 0 #b9b9b9, 0 5px 0 #aaa, 
+  0 6px 1px rgba(0,0,0,.1), 0 0 5px rgba(0,0,0,.1), 
+  0 1px 3px rgba(0,0,0,.3), 0 3px 5px rgba(0,0,0,.2), 
+  0 5px 10px rgba(0,0,0,.25), 0 10px 10px rgba(0,0,0,.2), 
+  0 20px 20px rgba(0,0,0,.15);
+  margin-top: 4rem;
+  margin-bottom: 4rem;
 }
 
-.log-In-Keys {
-  margin: 0;
-  border: 0;
+.landing-Intro-Container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.landing-Intro {
+  flex: 1;
+  max-width: 30vw;
+  font-size: 1.1em;
+  margin-bottom: 2rem;
+}
+
+.log-In-Key {
+  font-size: 1em;
+}
+
+.landing-Details {
+  max-width: 30vw;
+  font-size: 1em;
+  margin-top: 4rem;
+}
+.newMessage {
+  background-color: #0086C3;
+  margin: 2px;
+  display: flex;
+  padding: 2px;
+  justify-content: center;
+  border-radius: 8px 8px 8px 0;
+}
+
+.update {
+  background-color: #03B3C0;
+  padding: 5px;
+  margin: 12px;
+}
+
+.users {
+  background-color: #03B3C0;
+  padding: 5px;
+  margin: 12px;
+  list-style-type: none;
 }
