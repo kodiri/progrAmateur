@@ -76,6 +76,7 @@ export default function Chat() {
 
   return id ? (
     <section className="chatSection">
+       <div className="chatBackground">
       <ul id="messages">
         <Messages data={messages} />
       </ul>
@@ -88,9 +89,10 @@ export default function Chat() {
           <button type="submit">send</button>
         </form>
       </div>
+      </div>
     </section>
   ) : (
-    <body className="landing-Page">
+    <section className="landing-Page">
       <div className="landing-Background">
         <div className="landing-Main-Strip">
           <h1 className="landing-Header">{'{ progrAmateur }'} </h1>
@@ -127,6 +129,6 @@ export default function Chat() {
         </div>
         </div>
       </div>
-    </body>
-  );
+    </section>
+  ) 
 }
