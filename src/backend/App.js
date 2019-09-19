@@ -9,37 +9,38 @@ const port = process.env.PORT || 4001;
 const app = express();
 const server = http.createServer(app);
 const io = socketIo(server);
-let name, chatRoom;
+const users = {};
+
+
 
 
 //Setting up a socket with the namespace "connection" for new sockets
 io.on("connection", socket => {
     
     socket.on("join", (nameInput, room) =>{
-        name = nameInput;
-        chatRoom = room;
-        //socket.broadcast.emit('broadcast', nameInput + ' has join the room');
-        //socket.emit('hello', 'can you hear me?', 1, 2, 'abc');
+       
+        
+        socket.join(room);
+        users[socket.id] = nameInput;
 
-        //socket.emit('add-person',name, socket.id);
-        //socket.emit("message que", name, data);
+        socket.emit('update', nameInput+" have conneted ");
+
+        socket.broadcast.in(room).emit('update', nameInput + ' has join the room');
+        
     });
      
 
     //Here we listen on a new namespace called "chat message"
     socket.on("chat message", (data, room) =>{
         
-       
-       socket.emit('chat message',"   "+name,data);
-
+       io.sockets.in(room).emit('chat message', users[socket.id], data);
 
     });
 
-    //A special namespace "disconnect" for when a client disconnects
-    socket.on("disconnect", () => {
-    //socket.emit('remove-person', socket.id);
-    console.log("Client disconnected");
-    });
+
+ 
 });
+
+
 
 server.listen(port, () => console.log(`Listening on port ${port}`));
