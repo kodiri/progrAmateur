@@ -109,6 +109,7 @@
   padding: 15px;
   justify-content: space-between;
   border-radius: 8px 8px 8px 0;
+  max-width: 40vh;
 }
 
 .update {
@@ -125,5 +126,7 @@
 }
 
 .messages-innerMsg {
-  padding-left: 2px;
+  padding-left: 10px;
+  overflow-wrap: break-word;
+  max-width: 28vh;
 }
