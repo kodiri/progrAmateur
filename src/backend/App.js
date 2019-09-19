@@ -10,11 +10,12 @@ const app = express();
 const server = http.createServer(app);
 const io = socketIo(server);
 const users = {};
+const rooms = [];
 
 
 
 
-//Setting up a socket with the namespace "connection" for new sockets
+//Setting up a socket with the user "connection" for new sockets
 io.on("connection", socket => {
     
     socket.on("join", (nameInput, room) =>{
@@ -22,6 +23,7 @@ io.on("connection", socket => {
         
         socket.join(room);
         users[socket.id] = nameInput;
+        rooms[socket.id] = room;
 
         socket.emit('update', nameInput+" have conneted ");
 
@@ -30,13 +32,18 @@ io.on("connection", socket => {
     });
      
 
-    //Here we listen on a new namespace called "chat message"
+    //Here we listen on a new user called "chat message"
     socket.on("chat message", (data, room) =>{
         
        io.sockets.in(room).emit('chat message', users[socket.id], data);
 
     });
 
+    socket.on('disconnect', () => {
+        socket.broadcast.in(rooms[socket.id]).emit('update', users[socket.id] + ' has left the room');
+        delete users[socket.id]
+      })
+    
 
  
 });
