@@ -123,3 +123,7 @@
   margin: 12px;
   list-style-type: none;
 }
+
+.messages-innerMsg {
+  padding-left: 2px;
+}
