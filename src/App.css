@@ -17,6 +17,7 @@
   background-size: cover;
   background-position: center;
   justify-content: center;
+  color: white;
 }
 
 .landing-Page {
@@ -38,6 +39,8 @@
 }
 .form{
   display: flex;
+  border-top: 1px solid gray;
+  width: 40vh;
 }
 
 .chat{
@@ -63,13 +66,13 @@
 
 .landing-Main-Strip {
   min-height: 100vh;
-  width: 40vw;
   background: rgba(255,255,255, 0.9);
 }
 
 .landing-Header {
   flex: 1;
   color: #0086C3;
+  font-size: 7vh;
   text-shadow: 0 1px 0 #CCCCCC, 0 2px 0 #c9c9c9, 
   0 3px 0 #bbb, 0 4px 0 #b9b9b9, 0 5px 0 #aaa, 
   0 6px 1px rgba(0,0,0,.1), 0 0 5px rgba(0,0,0,.1), 
@@ -84,11 +87,12 @@
   display: flex;
   justify-content: center;
   flex-direction: column;
+  align-items: center;
 }
 
 .landing-Intro {
   flex: 1;
-  max-width: 30vw;
+  max-width: 34vh;
   font-size: 1.1em;
   margin-bottom: 2rem;
 }
@@ -98,16 +102,17 @@
 }
 
 .landing-Details {
-  max-width: 30vw;
+  max-width: 34vh;
   font-size: 1em;
   margin-top: 4rem;
 }
 .newMessage {
-  margin: 2px;
+  margin: 10px;
   display: flex;
-  padding: 2px;
-  justify-content: center;
+  padding: 15px;
+  justify-content: space-between;
   border-radius: 8px 8px 8px 0;
+  max-width: 40vh;
 }
 
 .update {
@@ -121,4 +126,10 @@
   padding: 5px;
   margin: 12px;
   list-style-type: none;
+}
+
+.messages-innerMsg {
+  padding-left: 10px;
+  overflow-wrap: break-word;
+  max-width: 28vh;
 }

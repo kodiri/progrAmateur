@@ -1,5 +1,4 @@
 import React from "react";
-import { getDiffieHellman } from "crypto";
 
 export default function Messages(props) { 
     function getFinalColor() {
@@ -18,8 +17,8 @@ export default function Messages(props) {
       }
     return (
         props.data.map(m => m[0] !=="" ?
-            (<li className='newMessage' style={{backgroundColor: `rgb(${getFinalColor()[0]}, ${getFinalColor()[1]}, ${getFinalColor()[2]})`}}><strong>{m[0]}</strong> :
-            <div className="innerMsg">{m[1]}</div></li>) :
+            (<li className='newMessage' style={{backgroundColor: `rgb(${getFinalColor()[0]}, ${getFinalColor()[1]}, ${getFinalColor()[2]})`}}><strong>{m[0] + ':'}</strong>
+            <p className="messages-innerMsg">{m[1]}</p></li>) :
             (<li className="update">{m[1]}</li>))
     );
 }
