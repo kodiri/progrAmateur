@@ -54,15 +54,6 @@ export default function Chat(props) {
       });
     });
   }, []);
-
-  const handleSubmit = e => {
-    e.preventDefault();
-    if (!nameInput) {
-      return alert("username cannot be empty");
-    }
-    setId(nameInput);
-    socket.emit("join", nameInput, room);
-  };
   const handleSend = e => {
     e.preventDefault();
     if (input !== "") {

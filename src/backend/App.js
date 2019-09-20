@@ -1,4 +1,5 @@
 const express = require("express");
+const path = require('path');
 const http = require("http");
 const socketIo = require("socket.io");
 
@@ -9,6 +10,10 @@ const port = process.env.PORT || 4001;
 const app = express();
 const server = http.createServer(app);
 const io = socketIo(server);
+app.use(express.static(path.join(__dirname, '../../build')));
+app.get('*', function (req, res) {
+    res.sendFile(path.join(__dirname, '../../build/', 'index.html'));
+});
 const users = {};
 const rooms = [];
 
@@ -25,9 +30,9 @@ io.on("connection", socket => {
         users[socket.id] = nameInput;
         rooms[socket.id] = room;
 
-        socket.emit('update', nameInput+" have conneted ");
+        socket.emit('update', nameInput+" have connected ");
 
-        socket.broadcast.in(room).emit('update', nameInput + ' has join the room');
+        socket.broadcast.in(room).emit('update', nameInput + ' has joined the room');
         
     });
      
