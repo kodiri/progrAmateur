@@ -7,7 +7,7 @@ import LandingPage from "./LandingPage.js";
 
 export default function Chat(props) {
   const [room, setRoom] = useState("");
-  const [socket] = useSocket("process.env.PORT"); //https://open-chat-naostsaecf.now.sh
+  const [socket] = useSocket("https://programateur.herokuapp.com"); //https://open-chat-naostsaecf.now.sh
 
   socket.connect();
   console.table(socket);
