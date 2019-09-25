@@ -144,4 +144,8 @@
 
 #sendMessageButton {
   width: 20%;
+  background: white;
+  text-align: center;
+  align-items: center;
+  border: none;
 }
