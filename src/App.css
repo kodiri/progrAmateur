@@ -137,7 +137,8 @@
 
 #sendMessageInput {
   width: 70%;
-  padding: 5%
+  padding: 5%;
+  border: none;
 }
 
 #sendMessageButton {

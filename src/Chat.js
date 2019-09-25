@@ -4,10 +4,10 @@ import Online from "./Online.js";
 import useSocket from "use-socket.io-client";
 import { useImmer } from "use-immer";
 import LandingPage from "./LandingPage.js";
-
+import SendSvg from "./SendSvg";
 export default function Chat(props) {
   const [room, setRoom] = useState("");
-  const [socket] = useSocket("http://localhost:3001"); //https://open-chat-naostsaecf.now.sh
+  const [socket] = useSocket("http://programateur.herokuapp.com"); //https://open-chat-naostsaecf.now.sh
 
   socket.connect();
   console.table(socket);
@@ -83,9 +83,10 @@ export default function Chat(props) {
             <input
               id="sendMessageInput"
               onChange={e => setInput(e.target.value.trim())}
+              placeholder="Type your message"
             />
             <button id="sendMessageButton" type="submit">
-              send
+              <SendSvg />
             </button>
           </form>
         </div>
