@@ -41,6 +41,7 @@
   display: flex;
   border-top: 1px solid gray;
   width: 40vh;
+  height: 5vh;
 }
 
 .chat{
