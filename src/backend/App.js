@@ -30,7 +30,7 @@ io.on("connection", socket => {
         users[socket.id] = nameInput;
         rooms[socket.id] = room;
 
-        socket.emit('update', nameInput+" have connected ");
+        socket.emit('update', nameInput+" has connected ");
 
         socket.broadcast.in(room).emit('update', nameInput + ' has joined the room');
         

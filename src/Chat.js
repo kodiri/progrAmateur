@@ -7,7 +7,7 @@ import LandingPage from "./LandingPage.js";
 
 export default function Chat(props) {
   const [room, setRoom] = useState("");
-  const [socket] = useSocket("http://localhost:4001"); //https://open-chat-naostsaecf.now.sh
+  const [socket] = useSocket("http://localhost:3001"); //https://open-chat-naostsaecf.now.sh
 
   socket.connect();
   console.table(socket);
