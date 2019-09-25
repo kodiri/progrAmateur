@@ -134,3 +134,11 @@
   overflow-wrap: break-word;
   max-width: 28vh;
 }
+
+#sendMessageInput {
+  width: 80%;
+}
+
+#sendMessageButton {
+  width: 20%;
+}
