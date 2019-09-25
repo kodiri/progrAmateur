@@ -133,3 +133,7 @@
   overflow-wrap: break-word;
   max-width: 28vh;
 }
+
+.landing-Inputs {
+  height:40px;
+}
