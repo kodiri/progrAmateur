@@ -40,7 +40,13 @@
 }
 
 .landing-Inputs {
-  border-radius: 5%;
+  height: 40px;
+  border: none;
+  border: 1px solid rgba(34,36,38,.15);
+  margin-bottom: 0.25em;
+  padding: 0 0.25em;
+  color: rgba(0,0,0,.87);
+  border-radius: .28571429rem !important;
 }
 
 .form {
@@ -117,7 +123,8 @@
 }
 
 .log-In-Button {
-  width: 12vh
+  margin-top: 0.25em;
+  width: 12vh;
 }
 
 .rules {
@@ -126,11 +133,12 @@
   width: 34vh;
   background:  #03B3C0;
   border-radius: 5%;
+  margin-bottom: 1em;
 }
 
 .rules-Header {
   flex: 1;
-  padding-top: 1em;
+  padding-top: 0.5em;
   font-size: 1.2em;
 }
 
@@ -173,10 +181,6 @@
   padding-left: 10px;
   overflow-wrap: break-word;
   max-width: 28vh;
-}
-
-.landing-Inputs {
-  height:40px;
 }
 
 #sendMessageInput {
