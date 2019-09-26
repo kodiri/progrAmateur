@@ -5,6 +5,7 @@ import useSocket from "use-socket.io-client";
 import { useImmer } from "use-immer";
 import LandingPage from "./LandingPage.js";
 import SendSvg from "./SendSvg";
+import Audio from "./Audio";
 export default function Chat(props) {
   const [room, setRoom] = useState("");
   const [socket] = useSocket("https://programateur.herokuapp.com"); //https://open-chat-naostsaecf.now.sh
@@ -71,6 +72,7 @@ export default function Chat(props) {
 
   return id ? (
     <section className="chatSection">
+        <Audio />
       <div className="chatBackground">
         <ul id="messages">
           <Messages data={messages} />
@@ -78,6 +80,7 @@ export default function Chat(props) {
         <ul id="online">
           {""} : <Online data={online} />{" "}
         </ul>
+        
         <div id="sendform">
           <form className="form" onSubmit={e => handleSend(e)}>
             <input
