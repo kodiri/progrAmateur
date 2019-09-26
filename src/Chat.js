@@ -4,7 +4,7 @@ import Online from "./Online.js";
 import useSocket from "use-socket.io-client";
 import { useImmer } from "use-immer";
 import LandingPage from "./LandingPage.js";
-
+import SendSvg from "./SendSvg";
 export default function Chat(props) {
   const [room, setRoom] = useState("");
   const [socket] = useSocket("https://programateur.herokuapp.com"); //https://open-chat-naostsaecf.now.sh
@@ -20,8 +20,8 @@ export default function Chat(props) {
     socket.on("update", message => {
       setMessages(draft => {
         draft.push(["", message]);
-      })
-    })
+      });
+    });
 
     socket.on("people-list", people => {
       let newState = [];
@@ -63,30 +63,36 @@ export default function Chat(props) {
     }
   };
 
-  function talkToLandingPage({nameInput, room}) {
-    console.log('in chat name inputs are', nameInput, room);
+  function talkToLandingPage({ nameInput, room }) {
+    console.log("in chat name inputs are", nameInput, room);
     setId(nameInput);
     setRoom(room);
   }
 
   return id ? (
     <section className="chatSection">
-       <div className="chatBackground">
-      <ul id="messages">
-        <Messages data={messages} />
-      </ul>
-      <ul id="online">
-        {""} : <Online data={online} />{" "}
-      </ul>
-      <div id="sendform">
-        <form className="form" onSubmit={e => handleSend(e)}>
-          <input id="m" onChange={e => setInput(e.target.value.trim())} />
-          <button type="submit">send</button>
-        </form>
-      </div>
+      <div className="chatBackground">
+        <ul id="messages">
+          <Messages data={messages} />
+        </ul>
+        <ul id="online">
+          {""} : <Online data={online} />{" "}
+        </ul>
+        <div id="sendform">
+          <form className="form" onSubmit={e => handleSend(e)}>
+            <input
+              id="sendMessageInput"
+              onChange={e => setInput(e.target.value.trim())}
+              placeholder="Type your message"
+            />
+            <button id="sendMessageButton" type="submit">
+              <SendSvg />
+            </button>
+          </form>
+        </div>
       </div>
     </section>
   ) : (
-    <LandingPage talkToChat={talkToLandingPage} passSocket = {socket}/>
-  ) 
+    <LandingPage talkToChat={talkToLandingPage} passSocket={socket} />
+  );
 }
