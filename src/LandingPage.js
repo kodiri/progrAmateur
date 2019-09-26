@@ -73,6 +73,7 @@ export default function LandingPage(props) {
                 placeholder='Rooms'
                 fluid
                 selection
+                defaultValue='JavaScript'
                 onChange={(e, { value }) => setRoom(value)}
                 options={friendOptions}
               />

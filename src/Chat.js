@@ -76,7 +76,7 @@ export default function Chat(props) {
           <Messages data={messages} />
         </ul>
         <ul id="online">
-          {""} : <Online data={online} />{" "}
+          {""} : <Online data={online} />{""}
         </ul>
         <div id="sendform">
           <form className="form" onSubmit={e => handleSend(e)}>
