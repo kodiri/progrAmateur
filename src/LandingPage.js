@@ -1,50 +1,50 @@
 import React, { useState } from "react";
-import { Dropdown } from 'semantic-ui-react';
-import 'semantic-ui-css/semantic.min.css'
-import JavaScript from './Images/javaScript.png';
-import CPlus from './Images/c-plus.png';
-import Python from './Images/python.png';
-import SQL from './Images/sql.png';
+import { Dropdown } from "semantic-ui-react";
+import "semantic-ui-css/semantic.min.css";
+import JavaScript from "./Images/javaScript.png";
+import CPlus from "./Images/c-plus.png";
+import Python from "./Images/python.png";
+import SQL from "./Images/sql.png";
 
 export default function LandingPage(props) {
   const [nameInput, setNameInput] = useState("");
   const [room, setRoom] = useState("");
   const friendOptions = [
     {
-      key: 'JavaScript',
-      text: 'JavaScript',
-      value: 'JavaScript', 
-      image: { avatar: true, src: JavaScript},
+      key: "JavaScript",
+      text: "JavaScript",
+      value: "JavaScript",
+      image: { avatar: true, src: JavaScript }
     },
     {
-      key: 'Python',
-      text: 'Python',
-      value: 'Python',
-      image: { avatar: true, src: Python },
+      key: "Python",
+      text: "Python",
+      value: "Python",
+      image: { avatar: true, src: Python }
     },
     {
-      key: 'C++',
-      text: 'C++',
-      value: 'C++',
-      image: { avatar: true, src: CPlus },
+      key: "C++",
+      text: "C++",
+      value: "C++",
+      image: { avatar: true, src: CPlus }
     },
     {
-      key: 'SQL',
-      text: 'SQL',
-      value: 'SQL',
-      image: { avatar: true, src: SQL}
-    }]
-
+      key: "SQL",
+      text: "SQL",
+      value: "SQL",
+      image: { avatar: true, src: SQL }
+    }
+  ];
 
   const handleSubmit = e => {
     e.preventDefault();
     if (!nameInput) {
       return alert("username cannot be empty");
     }
-    let Prom = new Promise((resolve) => {
-      resolve({ nameInput, room })
-    })
-    Prom.then((inputs) => props.talkToChat(inputs))
+    let Prom = new Promise(resolve => {
+      resolve({ nameInput, room });
+    });
+    Prom.then(inputs => props.talkToChat(inputs));
     props.passSocket.emit("join", nameInput, room);
   };
 
@@ -70,25 +70,34 @@ export default function LandingPage(props) {
               />
               <br />
               <Dropdown
-                placeholder='Rooms'
+                placeholder="Rooms"
                 fluid
                 selection
-                defaultValue='JavaScript'
+                defaultValue="JavaScript"
                 onChange={(e, { value }) => setRoom(value)}
                 options={friendOptions}
               />
-
-              <br />
               <br />
               <button type="submit">Join</button>
             </form>
             <br />
-            <p className="landing-Details">
-              Make your own chat room with full control over it.
+            <br />
+            <br />
+            <h4 className="rules-Header">Chat Rules</h4>
+            <ul>
               <br />
+              <li className="landing-Rules">Please be kind, supportive and respectful to every participant of the chat at all times.</li>
               <br />
-              Access to useful links such as StackOverflow etc.
-            </p>
+              <li className="landing-Rules">No bullying, sexism, racism, homophobia or other hate-based chat</li>
+              <br />
+              <li className="landing-Rules">Please only share relevant links</li>
+              <br />
+              <li className="landing-Rules">Don’t spam words or use all-caps</li>
+              <br />
+              <li className="landing-Rules">No spoilers to a game, TV show or film</li> 
+              <br />
+              <li className="landing-Rules">Don't create multiple logins for the purpose of disrupting the community</li>
+            </ul>
           </div>
         </div>
       </div>
