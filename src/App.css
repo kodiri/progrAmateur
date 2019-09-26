@@ -32,12 +32,24 @@
   background-size: cover;
   background-position: center;
 }
+
 .chatBackground {
   background-color: rgb(255, 255, 255, 0.8);
   display: flex;
   justify-content: center;
 }
-.form{
+
+.landing-Inputs {
+  height: 40px;
+  border: none;
+  border: 1px solid rgba(34,36,38,.15);
+  margin-bottom: 0.25em;
+  padding: 0 0.25em;
+  color: rgba(0,0,0,.87);
+  border-radius: .28571429rem !important;
+}
+
+.form {
   display: flex;
   border-top: 1px solid gray;
   width: 40vh;
@@ -45,7 +57,7 @@
   padding: 1vh;
 }
 
-.chat{
+.chat {
   background-color: rgb(92, 118, 141);
 }
 
@@ -54,10 +66,11 @@
   list-style-type: none;
   min-width: 40vh;
 }
+
 #online {
   background-color:  rgb(255, 255, 255, 0.8);
-  
 }
+
 #sendform {
   background-color: rgb(255, 255, 255, 0);
   position: absolute;
@@ -82,8 +95,13 @@
   0 1px 3px rgba(0,0,0,.3), 0 3px 5px rgba(0,0,0,.2), 
   0 5px 10px rgba(0,0,0,.25), 0 10px 10px rgba(0,0,0,.2), 
   0 20px 20px rgba(0,0,0,.15);
-  margin-top: 4rem;
-  margin-bottom: 4rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.Dev-Icon {
+  height: 25%;
+  width: 25%;
 }
 
 .landing-Intro-Container {
@@ -101,14 +119,42 @@
 }
 
 .log-In-Key {
-  font-size: 1em;
+  font-size: 1.2em;
 }
 
-.landing-Details {
-  max-width: 34vh;
-  font-size: 1em;
-  margin-top: 4rem;
+.log-In-Button {
+  margin-top: 0.25em;
+  width: 12vh;
 }
+
+.rules {
+  display: flex;
+  flex-direction: column;
+  width: 34vh;
+  background:  #03B3C0;
+  border-radius: 5%;
+  margin-bottom: 1em;
+}
+
+.rules-Header {
+  flex: 1;
+  padding-top: 0.5em;
+  font-size: 1.2em;
+}
+
+.landing-Container {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 1em;
+}
+
+.landing-Rules {
+  flex: 1;
+  padding: 0em, 0.5em;
+  font-size: 1.1em;
+  list-style-type: none;
+}
+
 .newMessage {
   margin: 10px;
   display: flex;
@@ -137,10 +183,6 @@
   max-width: 28vh;
 }
 
-
-.landing-Inputs {
-  height:40px;
-=======
 #sendMessageInput {
   width: 70%;
   padding: 5%;
@@ -153,5 +195,4 @@
   text-align: center;
   align-items: center;
   border: none;
-
 }
