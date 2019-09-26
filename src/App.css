@@ -137,6 +137,10 @@
   max-width: 28vh;
 }
 
+
+.landing-Inputs {
+  height:40px;
+=======
 #sendMessageInput {
   width: 70%;
   padding: 5%;
@@ -149,4 +153,5 @@
   text-align: center;
   align-items: center;
   border: none;
+
 }
