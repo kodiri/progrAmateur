@@ -5,6 +5,7 @@ import JavaScript from "./Images/javaScript.png";
 import CPlus from "./Images/c-plus.png";
 import Python from "./Images/python.png";
 import SQL from "./Images/sql.png";
+import Icon from "./Images/Dev-icon.png"
 
 export default function LandingPage(props) {
   const [nameInput, setNameInput] = useState("");
@@ -54,10 +55,8 @@ export default function LandingPage(props) {
         <div className="landing-Main-Strip">
           <h1 className="landing-Header">{"{ progrAmateur }"} </h1>
           <div className="landing-Intro-Container">
-            <h3 className="landing-Intro">
-              Meet new people who share the passion to join the development
-              world!
-            </h3>
+            <h3 className="landing-Intro"> Meet new people who share the passion to join the development world!</h3>
+            <img className="Dev-Icon" src={Icon} alt="Developer Icon"></img>
             <br />
             <form className="log-In" onSubmit={event => handleSubmit(event)}>
               <p className="log-In-Key">Log In</p>
@@ -77,18 +76,17 @@ export default function LandingPage(props) {
                 onChange={(e, { value }) => setRoom(value)}
                 options={friendOptions}
               />
-              <br />
-              <button type="submit">Join</button>
+              <button className="log-In-Button" type="submit">Join</button>
             </form>
             <br />
-            <br />
-            <br />
+            <div className="rules">
             <h4 className="rules-Header">Chat Rules</h4>
-            <ul>
+            <ul className="landing-Container">
+              <li className="landing-Rules">Please be kind, supportive and respectful to every participant of the chat at all times</li>
               <br />
-              <li className="landing-Rules">Please be kind, supportive and respectful to every participant of the chat at all times.</li>
+              <li className="landing-Rules">No bullying</li>
               <br />
-              <li className="landing-Rules">No bullying, sexism, racism, homophobia or other hate-based chat</li>
+              <li className="landing-Rules">No sexism, racism, homophobia or other hate-based chat</li>
               <br />
               <li className="landing-Rules">Please only share relevant links</li>
               <br />
@@ -98,9 +96,10 @@ export default function LandingPage(props) {
               <br />
               <li className="landing-Rules">Don't create multiple logins for the purpose of disrupting the community</li>
             </ul>
+            </div>
           </div>
         </div>
       </div>
-    </section>
+    </section>  
   );
 }

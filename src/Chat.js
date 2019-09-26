@@ -5,10 +5,10 @@ import useSocket from "use-socket.io-client";
 import { useImmer } from "use-immer";
 import LandingPage from "./LandingPage.js";
 import SendSvg from "./SendSvg";
+
 export default function Chat(props) {
   const [room, setRoom] = useState("");
   const [socket] = useSocket("https://programateur.herokuapp.com"); //https://open-chat-naostsaecf.now.sh
-
   socket.connect();
   console.table(socket);
   const [id, setId] = useState("");
@@ -54,6 +54,7 @@ export default function Chat(props) {
       });
     });
   }, []);
+
   const handleSend = e => {
     e.preventDefault();
     if (input !== "") {

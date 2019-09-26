@@ -8,11 +8,8 @@ export default function Messages(props) {
             return Math.round(Math.random() * num);
           };
           return [getRGB(3), getRGB((179-134)), getRGB((192-195))];
-        
         }
-      
-        console.log(ChatBoxColors().map((color, i) => originColors[i]+color))
-        return ChatBoxColors().map((color, i) => originColors[i]+color)
+              return ChatBoxColors().map((color, i) => originColors[i]+color)
       }
     return (
         props.data.map(m => m[0] !=="" ?
