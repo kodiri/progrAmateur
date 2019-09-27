@@ -1,6 +1,6 @@
 
 import React, { Component } from "react";
-import soundfile from "./Sound1.wav";
+import soundfile from "./Sound1.mp3";
 import Sound from "react-sound";
 
 export default class Alert extends Component {
