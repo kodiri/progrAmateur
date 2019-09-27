@@ -40,11 +40,11 @@
 }
 
 .landing-Inputs {
-  height: 40px;
+  height: 5vh;
   border: none;
   border: 1px solid rgba(34,36,38,.15);
-  margin-bottom: 0.25em;
-  padding: 0 0.25em;
+  margin-bottom: 0.5vh;
+  padding: 0 0.5vh;
   color: rgba(0,0,0,.87);
   border-radius: .28571429rem !important;
 }
@@ -62,13 +62,13 @@
 }
 
 #messages {
-  background-color:  rgb(255, 255, 255, 0.8);
+  background-color: rgb(255, 255, 255, 0.8);
   list-style-type: none;
   min-width: 40vh;
 }
 
 #online {
-  background-color:  rgb(255, 255, 255, 0.8);
+  background-color: rgb(255, 255, 255, 0.8);
 }
 
 #sendform {
@@ -95,13 +95,12 @@
   0 1px 3px rgba(0,0,0,.3), 0 3px 5px rgba(0,0,0,.2), 
   0 5px 10px rgba(0,0,0,.25), 0 10px 10px rgba(0,0,0,.2), 
   0 20px 20px rgba(0,0,0,.15);
-  margin-top: 2rem;
-  margin-bottom: 2rem;
+  margin-bottom: 4vh;
 }
 
 .Dev-Icon {
-  height: 25%;
-  width: 25%;
+  height: 13vh;
+  width: 13vh;
 }
 
 .landing-Intro-Container {
@@ -114,16 +113,17 @@
 .landing-Intro {
   flex: 1;
   max-width: 34vh;
-  font-size: 1.1em;
-  margin-bottom: 2rem;
+  font-size: 2vh;
+  margin-bottom: 1.5vh;
 }
 
 .log-In-Key {
-  font-size: 1.2em;
+  font-size: 2.2vh;
+  margin: 0;
 }
 
 .log-In-Button {
-  margin-top: 0.25em;
+  margin-top: 0.4vh;
   width: 12vh;
 }
 
@@ -131,28 +131,28 @@
   display: flex;
   flex-direction: column;
   width: 34vh;
-  background:  #03B3C0;
+  background: rgb(130, 193, 250);
   border-radius: 5%;
-  margin-bottom: 1em;
+  margin-bottom: 1vh;
 }
 
 .rules-Header {
   flex: 1;
-  padding-top: 0.5em;
-  font-size: 1.2em;
+  padding-top: 0.5vh;
+  font-size: 2.2vh;
 }
 
 .landing-Container {
   display: flex;
   flex-direction: column;
-  padding-bottom: 1em;
+  padding-bottom: 1vh;
 }
 
 .landing-Rules {
   flex: 1;
-  padding: 0em, 0.5em;
-  font-size: 1.1em;
+  font-size: 1.9vh;
   list-style-type: none;
+  margin-bottom: 1.2vh;
 }
 
 .newMessage {

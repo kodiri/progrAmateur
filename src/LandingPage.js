@@ -83,17 +83,11 @@ export default function LandingPage(props) {
             <h4 className="rules-Header">Chat Rules</h4>
             <ul className="landing-Container">
               <li className="landing-Rules">Please be kind, supportive and respectful to every participant of the chat at all times</li>
-              <br />
               <li className="landing-Rules">No bullying</li>
-              <br />
               <li className="landing-Rules">No sexism, racism, homophobia or other hate-based chat</li>
-              <br />
               <li className="landing-Rules">Please only share relevant links</li>
-              <br />
               <li className="landing-Rules">Don’t spam words or use all-caps</li>
-              <br />
               <li className="landing-Rules">No spoilers to a game, TV show or film</li> 
-              <br />
               <li className="landing-Rules">Don't create multiple logins for the purpose of disrupting the community</li>
             </ul>
             </div>
