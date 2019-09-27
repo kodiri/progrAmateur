@@ -16,6 +16,7 @@ export default function Chat(props) {
   const [messages, setMessages] = useImmer([]);
   const [online, setOnline] = useImmer([]);
   const [input, setInput] = useState("");
+  const [propInState, setPropInState] = useState(true);
 
   useEffect(() => {
     socket.on("update", message => {
@@ -56,6 +57,10 @@ export default function Chat(props) {
     });
   }, []);
 
+  useEffect(() => {
+    setTimeout(() => setPropInState(false), 5000);
+  }, []);
+
   const handleSend = e => {
     e.preventDefault();
     if (input !== "") {
@@ -73,26 +78,28 @@ export default function Chat(props) {
 
   return id ? (
     <section className="chatSection">
-        <Audio />
+      {propInState ? <Audio /> : null}
       <div className="chatBackground">
         <ul id="messages">
           <Messages data={messages} />
         </ul>
         <ul id="online">
-          {""} : <Online data={online} />{""}
+          {""} : <Online data={online} />
+          {""}
         </ul>
-        
         <div id="sendform">
-          <form className="form" onSubmit={e => handleSend(e)}>
-            <input
-              id="sendMessageInput"
-              onChange={e => setInput(e.target.value.trim())}
-              placeholder="Type your message"
-            />
-            <button id="sendMessageButton" type="submit">
-              <SendSvg />
-            </button>
-          </form>
+          <div className="opaqueForm">
+            <form className="form" onSubmit={e => handleSend(e)}>
+              <input
+                id="sendMessageInput"
+                onChange={e => setInput(e.target.value.trim())}
+                placeholder="Type your message"
+              />
+              <button id="sendMessageButton" type="submit">
+                <SendSvg />
+              </button>
+            </form>
+          </div>
         </div>
       </div>
     </section>
