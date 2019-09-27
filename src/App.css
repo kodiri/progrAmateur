@@ -32,12 +32,24 @@
   background-size: cover;
   background-position: center;
 }
+
 .chatBackground {
   background-color: rgb(255, 255, 255, 0.8);
   display: flex;
   justify-content: center;
 }
-.form{
+
+.landing-Inputs {
+  height: 5vh;
+  border: none;
+  border: 1px solid rgba(34,36,38,.15);
+  margin-bottom: 0.5vh;
+  padding: 0 0.5vh;
+  color: rgba(0,0,0,.87);
+  border-radius: .28571429rem !important;
+}
+
+.form {
   display: flex;
   border-top: 1px solid gray;
   width: 40vh;
@@ -45,19 +57,20 @@
   padding: 1vh;
 }
 
-.chat{
+.chat {
   background-color: rgb(92, 118, 141);
 }
 
 #messages {
-  background-color:  rgb(255, 255, 255, 0.8);
+  background-color: rgb(255, 255, 255, 0.8);
   list-style-type: none;
   min-width: 40vh;
 }
+
 #online {
-  background-color:  rgb(255, 255, 255, 0.8);
-  
+  background-color: rgb(255, 255, 255, 0.8);
 }
+
 #sendform {
   background-color: rgb(255, 255, 255, 0);
   position: absolute;
@@ -82,8 +95,12 @@
   0 1px 3px rgba(0,0,0,.3), 0 3px 5px rgba(0,0,0,.2), 
   0 5px 10px rgba(0,0,0,.25), 0 10px 10px rgba(0,0,0,.2), 
   0 20px 20px rgba(0,0,0,.15);
-  margin-top: 4rem;
-  margin-bottom: 4rem;
+  margin-bottom: 4vh;
+}
+
+.Dev-Icon {
+  height: 13vh;
+  width: 13vh;
 }
 
 .landing-Intro-Container {
@@ -96,19 +113,48 @@
 .landing-Intro {
   flex: 1;
   max-width: 34vh;
-  font-size: 1.1em;
-  margin-bottom: 2rem;
+  font-size: 2vh;
+  margin-bottom: 1.5vh;
 }
 
 .log-In-Key {
-  font-size: 1em;
+  font-size: 2.2vh;
+  margin: 0;
 }
 
-.landing-Details {
-  max-width: 34vh;
-  font-size: 1em;
-  margin-top: 4rem;
+.log-In-Button {
+  margin-top: 0.4vh;
+  width: 12vh;
 }
+
+.rules {
+  display: flex;
+  flex-direction: column;
+  width: 34vh;
+  background: rgb(130, 193, 250);
+  border-radius: 5%;
+  margin-bottom: 1vh;
+}
+
+.rules-Header {
+  flex: 1;
+  padding-top: 0.5vh;
+  font-size: 2.2vh;
+}
+
+.landing-Container {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 1vh;
+}
+
+.landing-Rules {
+  flex: 1;
+  font-size: 1.9vh;
+  list-style-type: none;
+  margin-bottom: 1.2vh;
+}
+
 .newMessage {
   margin: 10px;
   display: flex;
@@ -153,5 +199,4 @@
   text-align: center;
   align-items: center;
   border: none;
-
 }

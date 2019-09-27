@@ -5,15 +5,11 @@ export default function Messages(props) {
         let originColors = [0, 124,195];
         function ChatBoxColors() {
           const getRGB = (num) => {
-            console.log(Math.round(Math.random() * num))
             return Math.round(Math.random() * num);
           };
           return [getRGB(3), getRGB((179-134)), getRGB((192-195))];
-        
         }
-      
-        console.log(ChatBoxColors().map((color, i) => originColors[i]+color))
-        return ChatBoxColors().map((color, i) => originColors[i]+color)
+              return ChatBoxColors().map((color, i) => originColors[i]+color)
       }
     return (
         props.data.map(m => m[0] !=="" ?
