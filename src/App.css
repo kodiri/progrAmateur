@@ -183,7 +183,11 @@
   max-width: 28vh;
 }
 
-#sendMessageInput {
+
+.landing-Inputs {
+  height:40px;
+}
+  #sendMessageInput {
   width: 70%;
   padding: 5%;
   border: none;
